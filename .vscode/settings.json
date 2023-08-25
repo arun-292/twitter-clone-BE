@@ -1,0 +1,8 @@
+{
+  "prettier.configPath": ".prettierrc.json",
+  "eslint.options": { "overrideConfigFile": ".eslintrc.json" },
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "eslint.format.enable": true,
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": false
+}

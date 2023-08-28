@@ -32,10 +32,4 @@ router.post(
   signIn,
 );
 
-// app.post('/signup', (req, res) => {
-//   console.log('req.body == ', req.body);
-//   console.log('res == ', res);
-//   res.json({ okay: true });
-// });
-
 export default router;

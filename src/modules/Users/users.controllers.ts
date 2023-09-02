@@ -21,8 +21,21 @@ const signUp = (req: Request, res: Response) => {
     });
 };
 
+const validate = (req: Request, res: Response) => {
+  Users.findOne({
+    $or: [{ name: req.body.field }, { email: req.body.field }, { phone: req.body.field }],
+  })
+    .then((r) => {
+      res.json({ res: r.toJSON() });
+    })
+    .catch((c) => {
+      res.json({ res: c });
+    });
+  res.json({ req: req.body });
+};
+
 const signIn = (req: Request, res: Response) => {
   res.json({ req: req.body });
 };
 
-export { signUp, signIn };
+export { signUp, signIn, validate };

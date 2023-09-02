@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { signUp, signIn } from './users.controllers';
+import { signUp, signIn, validate } from './users.controllers';
 import { oneOf, body } from 'express-validator';
 const router: Router = Router();
 
@@ -18,6 +18,8 @@ router.post(
   ),
   signUp,
 );
+
+router.post('/validate', validate);
 
 router.post(
   '/signin',

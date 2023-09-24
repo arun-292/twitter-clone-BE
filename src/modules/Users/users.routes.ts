@@ -5,7 +5,8 @@ const router: Router = Router();
 
 router.post(
   '/signup',
-  body('name').isLength({ min: 3 }),
+  body('fullName').isLength({ min: 3 }),
+  body('userName').isLength({ min: 3 }),
   oneOf(
     [
       body('email', 'enter email').isEmail(),
@@ -19,18 +20,12 @@ router.post(
   signUp,
 );
 
-router.post('/validate', validate);
+router.get('/validate/:validator', validate);
 
 router.post(
   '/signin',
-  oneOf(
-    [
-      body('name').isLength({ min: 3 }),
-      body('email').isEmail(),
-      body('phone').isMobilePhone('en-IN'),
-    ],
-    { message: 'Please Fill Out All Fields Of Your Billing Address' },
-  ),
+  body('validationField').isLength({ min: 3 }),
+  body('password').isLength({ min: 3 }),
   signIn,
 );
 

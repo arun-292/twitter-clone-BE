@@ -2,15 +2,22 @@ import { Schema } from 'mongoose';
 
 export const UserSchema = new Schema(
   {
-    name: {
+    fullName: {
       type: String,
       required: true,
     },
-    email: {
+    lower_userName: {
       type: String,
+      required: true,
+      unique: true,
+    },
+    lower_email: {
+      type: String,
+      index: { unique: true, sparse: true },
     },
     phone: {
       type: String,
+      index: { unique: true, sparse: true },
     },
     uuid: {
       type: String,
@@ -28,6 +35,6 @@ export const UserSchema = new Schema(
     },
   },
   {
-    autoCreate: true,
+    autoIndex: true,
   },
 );
